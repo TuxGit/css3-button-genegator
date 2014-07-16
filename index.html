@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ДЗ-3 - Главная</title>
+    <link rel="stylesheet" href="assets/css/libs/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/libs/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+  <div class="wrapper">
+    <div class="container">
+      <h2 class="text-center">CSS3 BUTTON GENERATOR</h2>
+      <div class="row row--first">
+        <div class="col-md-6">
+          <div class="options">
+            <h3 class="options__header text-center">OPTIONS</h3>
+            <dl class="options__list dl-horizontal">
+              <dt>Border-radius</dt>
+              <dd><div id="borderRadius"></div></dd>
+              <dt>Border-size</dt>
+              <dd><div id="borderSize"></div></dd>
+              <dt>Text</dt>
+              <dd><input id="buttonText" placeholder="Button text" type="text"></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="result-btn">
+            <h3 class="result-btn__header text-center">RESULT</h3>
+            <div class="result-btn__button">
+              <button id="btn" class="btn">Text</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form class="result-form" action="#">
+            <textarea class="result-form__textarea" name="html" style="resize: vertical;" placeholder="HTML code" cols="30" rows="5"></textarea>
+            <textarea class="result-form__textarea" name="css" placeholder="CSS code" cols="30" rows="5"></textarea>
+            <input class="result-form__input" name="email" type="text">
+            <button class="result-form__submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Include all javascript files -->
+    <script src="assets/js/libs/jquery.min.js"></script>
+    <script src="assets/js/libs/jquery-ui.js"></script>
+    <script src="assets/js/libs/bootstrap.js"></script>
+    <script src="assets/js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,35 @@
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+$small: 320px;
+$middle: 640px;
+$large: 1024px;
+
+//media=«screen» соотвествует обычному компьютеру, media=«handheld» — это мобильное устройство
+@mixin respond-to($media) 
+{
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
+  }
+  @else if $media == small-screens {
+  	@media only screen and (min-width: $small + 1) and (max-width: $middle - 1) { @content; }
+  }
+  @else if $media == medium-screens {
+    //@media only screen and (min-width: $small + 1) and (max-width: $large - 1) { @content; }
+    @media only screen and (min-width: $middle) and (max-width: $large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
+

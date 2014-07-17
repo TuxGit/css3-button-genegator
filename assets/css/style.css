@@ -1,0 +1,134 @@
+/* line 13, ../sass/style.scss */
+.wrapper {
+  background-image: url("../img/bg2.png");
+  padding: 20px 0;
+  min-width: 320px;
+}
+/* line 19, ../sass/style.scss */
+.wrapper .container {
+  background-color: #fff;
+  padding: 10px 20px 40px 20px;
+  position: relative;
+}
+
+/* line 27, ../sass/style.scss */
+.options {
+  margin: 0 40px;
+}
+/* line 30, ../sass/style.scss */
+.options__list {
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+/* line 35, ../sass/style.scss */
+.options__list dt, .options__list dd {
+  line-height: 54px;
+}
+/* line 39, ../sass/style.scss */
+.options__list-input {
+  height: 30px;
+  margin-top: 11px;
+}
+
+/* line 47, ../sass/style.scss */
+.result-btn {
+  text-align: center;
+}
+/* line 51, ../sass/style.scss */
+.result-btn .result-btn__button {
+  margin-top: 90px;
+  margin-bottom: 90px;
+  border-color: #d2d2d2;
+}
+@media only screen and (min-width: 992px) {
+  /* line 51, ../sass/style.scss */
+  .result-btn .result-btn__button {
+    margin-bottom: 0;
+  }
+}
+
+/* line 61, ../sass/style.scss */
+.result-form {
+  margin-left: -18px;
+  margin-top: 47px;
+}
+/* line 65, ../sass/style.scss */
+.result-form__textarea {
+  display: inline-block;
+  width: 220px;
+  margin: 0 9px;
+  resize: none;
+}
+/* line 72, ../sass/style.scss */
+.result-form__input {
+  width: 220px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 18px;
+}
+/* line 79, ../sass/style.scss */
+.result-form__submit {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -moz-border-radius: 17px;
+  -webkit-border-radius: 17px;
+  border-radius: 17px;
+}
+
+/* line 92, ../sass/style.scss */
+h2 {
+  font-size: 24px;
+}
+
+/* line 95, ../sass/style.scss */
+h3 {
+  font-size: 18px;
+}
+
+@media only screen and (min-width: 992px) {
+  /* line 98, ../sass/style.scss */
+  .delimiter {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    width: 5px;
+    height: 90%;
+    background: url(../img/delimiter.png) repeat-y;
+  }
+}
+
+/* line 108, ../sass/style.scss */
+.row--first {
+  border-bottom: 1px dashed #a1a1a1;
+}
+
+/* line 112, ../sass/style.scss */
+.row {
+  margin: 0;
+}
+
+/* line 117, ../sass/style.scss */
+.ui-slider-horizontal {
+  background-color: #808080;
+  background-image: none;
+  margin-top: 21px;
+}
+
+/* line 125, ../sass/style.scss */
+.ui-slider-horizontal .ui-slider-range {
+  background: #3391d3;
+}
+
+/* line 129, ../sass/style.scss */
+.ui-slider-horizontal .ui-slider-handle {
+  background-image: url(../img/slider-handler.png);
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  height: 25px;
+  width: 23px;
+  top: -0.5em;
+}

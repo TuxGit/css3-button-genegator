@@ -1,0 +1,7 @@
+<?php
+
+$config = array(
+	'host'     => "smtp.localhost.ru",
+	'username' => "example@server.ru",
+	'password' => "12345"
+);

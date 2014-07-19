@@ -7,6 +7,8 @@ sass_dir = "assets/sass"
 images_dir = "assets/img"
 javascripts_dir = "assets/js"
 
+sass_options = {:cache_location => "../tmp/.sass-cache"} 
+
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 

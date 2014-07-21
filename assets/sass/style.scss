@@ -1,5 +1,5 @@
 //@import "compass/reset";
-@import "compass/css3";
+@import "compass/css3"; //@import "compass/css3/box-shadow"
 @import "mixins";
 
 
@@ -18,35 +18,90 @@ body {
 
 	.container {
 		background-color: #fff;
-		padding: 10px 20px 40px 20px;
+		padding: 10px 20px 20px 20px;
 		position: relative;
+		@include border-radius(10px);
+		@include box-shadow(rgba(black, 0.4) 2px 2px 10px);
 	}
 }
 
 
-.options {
-	margin: 0 40px;
+.options-size {
+	//margin: 0 40px;
+	padding-right: 40px;
 
 	&__list { //dl
 
-		margin-top: 25px;
-		margin-bottom: 35px;
+		margin-top: 10px;
+		//margin-bottom: 35px;
 
 		dt, dd {
 			line-height: 54px; //34,35
+			@include respond-to(small) {
+				line-height: 34px;
+			}
 		}
-
+		//dd
 		&-input {
 			//width: 210px; 
 			height: 30px;
 			margin-top: 11px;
+			@include respond-to(small) {
+				margin-top: 0;
+			}
 		}
 	}
+}
+.options-color {
+	//margin: 0 40px;
+	padding-bottom: 80px;
+
+	&__list { //dl
+
+		margin-top: 10px;
+		//margin-bottom: 35px;
+
+		dt { //dd
+			line-height: 54px; //34,35
+			@include respond-to(small) {
+				line-height: 34px;
+			}
+		}
+		dt {
+			@include respond-to(large) {
+				width: auto;
+			}
+		}
+		dd {
+			@include respond-to(large) {
+				margin-left: 150px; //180
+			}
+		}
+		//dd
+		&-input {
+			width: 62px; 
+			height: 30px;
+			margin-top: 11px;
+			@include respond-to(small) {
+				margin-top: 0;
+			}
+		}
+
+	}
+}
+.options-color__title, 
+.options-size__title {
+	margin: 0;
+	font-size: 14px;
 }
 
 .result-btn {
 	text-align: center;
 	//margin: 0 20px;
+
+	&__title {
+		margin-top: -28px;
+	}
 
 	.result-btn__button { //#btn
 		margin-top: 90px;
@@ -56,11 +111,12 @@ body {
 			margin-bottom: 0;
 		}
 	}
+
 }
 
 .result-form {
 	margin-left: -18px;
-	margin-top: 47px;
+	margin-top: 30px;
 
 	&__textarea {
 		display: inline-block;
@@ -101,7 +157,7 @@ h3 {
 		top: 5px;
 		right: -5px;
 		width: 5px;
-		height: 90%;
+		height: 95%;
 		background: url(../img/delimiter.png) repeat-y;
 	};
 }
@@ -120,6 +176,9 @@ h3 {
 	background-image: none;
 
 	margin-top: 21px; //11
+	@include respond-to(small) {
+		margin-top: 0;
+	}
 }
 
 .ui-slider-horizontal .ui-slider-range { 

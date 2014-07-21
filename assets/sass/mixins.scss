@@ -12,7 +12,7 @@
 
 
 $small: 320px;
-$middle: 640px;
+$middle: 768px; //768 640
 $large: 992px; //1024px;
 
 
@@ -23,7 +23,8 @@ $large: 992px; //1024px;
     //@media only screen and (max-width: $small) { @content; }
   }
   @else if $media == small {
-  	//@media only screen and (min-width: $small + 1) and (max-width: $middle - 1) { @content; }
+    //@media only screen and (min-width: $small + 1) and (max-width: $middle - 1) { @content; }
+  	@media only screen and (max-width: $middle) { @content; }
   }
   @else if $media == large {
     @media only screen and (min-width: $large) { @content; }

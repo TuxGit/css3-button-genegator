@@ -21,7 +21,7 @@ class Mail
 		// 0 = off (for production use)
 		// 1 = client messages
 		// 2 = client and server messages
-		$this->mail->SMTPDebug = 0;
+		$this->mail->SMTPDebug   = 0;
 		$this->mail->Debugoutput = 'html'; //Ask for HTML-friendly debug output
 
 		$this->mail->Host       = $config['host'];  //hostname of the mail server
@@ -32,9 +32,9 @@ class Mail
 		$this->mail->Password   = $config['password'];         //Password to use for SMTP authentication
 		$this->mail->CharSet    = 'UTF-8';
 
-		$this->mail->setFrom('no-reply@6log.ru', 'Mailer'); //Set who the message is to be sent from
-		$this->mail->WordWrap = 50;                         // Set word wrap to 50 characters
-		$this->mail->isHTML(true);                          // Set email format to HTML
+		$this->mail->setFrom($config['username'], 'Mailer'); //Set who the message is to be sent from
+		$this->mail->WordWrap = 50;                      // Set word wrap to 50 characters
+		$this->mail->isHTML(true);                       // Set email format to HTML
 	}
 
 	public function send($email, $htmlText, $cssText)

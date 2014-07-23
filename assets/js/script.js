@@ -205,16 +205,20 @@
 
         showCss: function() //showResult
         {
-            var borderRadius = this.btn.css("borderTopLeftRadius"), //border-radius
+            //размеры
+            var borderRadius = parseInt(this.btn.css("borderTopLeftRadius")), //border-radius
+                maxBorderRadius = parseInt(this.btn.outerHeight()/2),
                 borderWidth = this.btn.css("borderTopWidth"), //border-width
                 //width	 	 = this.btn.css("width"),
                 //height	 = this.btn.css("height"),
                 pdTop = this.btn.css("padding-top"),
                 pdLeft = this.btn.css("padding-left"),
-                
+            //цвета
                 color = this.btn.css("color"),
                 borderColor = this.btn.css("border-top-color"),
                 backgroundColor = this.btn.css("background-color");
+            //проверки
+            borderRadius = (borderRadius > maxBorderRadius) ? maxBorderRadius.toFixed() + 'px' : borderRadius.toFixed() + 'px';
 
             this.cssField.val(
                 '.button {\n' +

@@ -1,5 +1,6 @@
 .sass-cache
 sftp-config.json
 *.sublime-*
-mail-config.php
+server/mail_config.php
+node_modules
 dz3-psd.psd

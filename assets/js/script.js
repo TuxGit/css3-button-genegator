@@ -46,9 +46,10 @@
 
         init: function() {
             //init vars
+            this.ajaxUrl = "server/send_mail.php";
             this.htmlTemplate = '<button class="button">Text</button>';
-            this.btn = $('#btn');
             this.textField = $('#buttonText');
+            this.btn = $('#btn');
             this.form = $('#form');
             this.cssField = this.form.find('#cssField');
             this.htmlField = this.form.find('#htmlField');
@@ -78,10 +79,9 @@
             //this.clearTooltip.call();
 
             if (this.validateForm(form) === true) {
-                console.log(form, 'ajax gogogo');
-
+                //console.log(form, 'ajax gogogo');
                 var request = $.ajax({
-                    url: "send_mail.php",
+                    url: this.ajaxUrl,
                     type: "POST",
                     data: { 
                         email: this.inputEmail.val(), 
@@ -90,14 +90,20 @@
                     },
                     dataType: "json"
                 });
-                request.success(function( data, textStatus, jqXHR ) { //done
-                    console.log('done ', arguments);
-                    this.inputEmail.val('');
-                });
-                request.fail(function( jqXHR, textStatus ) {
-                    //alert( "Request failed: " + textStatus );
-                    console.log('fail ', arguments);
-                });
+                request.success($.proxy(function( data, textStatus, jqXHR ) { //done
+                    var res = JSON.parse(data);
+                    //console.log('done: ', res, arguments);
+                    if (res.success) {
+                        this.inputEmail.val('');
+                        this.makeTooltip('Письмо отправлено');
+                    } else {
+                        this.makeTooltip('Ошибка отправки');
+                    }
+                }, this));
+                request.fail($.proxy(function( jqXHR, textStatus ) {
+                    //console.log('fail: ', arguments);
+                    this.makeTooltip('Ошибка отправки');
+                }, this));
             }
         },
 
@@ -127,6 +133,15 @@
             }
 
             return valid;
+        },
+
+        makeTooltip: function(text, status)
+        {
+            this.inputEmail.tooltip({
+                trigger: 'manual',
+                placement: 'right',
+                title: text
+            }).tooltip('show');   
         },
 
         /*clearTooltip: function ()
@@ -224,7 +239,7 @@
                 button = $(this.htmlTemplate).text(newText);
 
             if (newText != 0) {
-                $('#btn').text(newText);
+                this.btn.text(newText);
                 this.htmlField.val(button[0].outerHTML);
                 //this.showHtml(newText);
             }

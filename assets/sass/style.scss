@@ -120,7 +120,8 @@ body {
 
 	&__textarea {
 		display: inline-block;
-		width: 220px;
+		width: 280px; //220
+		overflow-x: hidden;
 		margin: 0 9px;
 		resize: none; //vertical;
 	}

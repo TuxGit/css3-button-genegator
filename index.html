@@ -5,84 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CSS3 Button Generator (dz-3)</title>
-    <link rel="stylesheet" href="assets/css/libs/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/libs/jquery-ui.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/production.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script>
+        var IE_OLD = true;
+      </script>
     <![endif]-->
   </head>
   <body>
   
   <div class="wrapper">
     <div class="container">
-      <h2 class="text-center">CSS3 BUTTON GENERATOR</h2>
+    <h2 class="text-center">CSS3 BUTTON GENERATOR<sup>beta</sup></h2>
       
       <div class="row row--header">
         <div class="col-md-8"><h3 class="text-center">OPTIONS</h3></div>
-        <!-- <div class="col-md-4"><h3 class="text-center">RESULT</h3></div> -->
-      </div>
-      <div class="row row--first">
-        
+      </div><!--end row-->
+      
+      <div class="row row--first">        
         <div class="col-md-5 options-size">
-          <!-- <div class="options"> -->
-            <h6 class="options-size__title text-center">Size</h6>
-            <dl class="options-size__list dl-horizontal">
-              <dt>Border-radius</dt><dd><div id="borderRadius"></div></dd>
-              <dt>Border-size</dt><dd><div id="borderSize"></div></dd>
-              <dt>Horizontal-size</dt><dd><div id="horizontalSize"></div></dd>
-              <dt>Vertical-size</dt><dd><div id="verticalSize"></div></dd>
-              <dt>Text</dt><dd><input type="text" id="buttonText" class="options-size__list-input form-control" id="inputEmail" placeholder="Text">
-              </dd>
-            </dl>
-          <!-- </div> -->
-        </div>
-        
+          <h6 class="options-size__title text-center">Size</h6>
+          <dl class="options-size__list dl-horizontal">
+            <dt>Border-radius</dt><dd><div id="borderRadius"></div></dd>
+            <dt>Border-size</dt><dd><div id="borderSize"></div></dd>
+            <dt>Horizontal-size</dt><dd><div id="horizontalSize"></div></dd>
+            <dt>Vertical-size</dt><dd><div id="verticalSize"></div></dd>
+            <dt>Text</dt><dd><input type="text" id="buttonText" class="options-size__list-input form-control" id="inputEmail" placeholder="Text">
+            </dd>
+          </dl>
+        </div>        
         <div class="col-md-3 options-color" id="optionsColor">
           <div class="delimiter"></div>
           <h6 class="options-color__title text-center">Color</h6>
           <dl class="options-color__list dl-horizontal">
-              <dt>Text</dt><dd><input id="textColor" class="color options-color__list-input"></dd>
-              <dt>Border</dt><dd><input id="borderColor" class="color options-color__list-input"></dd>
-              <dt>Background</dt><dd><input id="backgroundColor" class="color options-color__list-input"></dd>
-              <!-- <dt>Gradient</dt><dd><div id="">234567</div></dd> -->              
-            </dl>
+            <dt>Text</dt><dd><input id="textColor" class="color options-color__list-input"></dd>
+            <dt>Border</dt><dd><input id="borderColor" class="color options-color__list-input"></dd>
+            <dt>Background</dt><dd><input id="backgroundColor" class="color options-color__list-input"></dd>
+            <!--<dt>Gradient</dt><dd><div id="">coming soon</div></dd>-->
+          </dl>
         </div>
-
         <div class="col-md-4">
           <div class="result-btn">
             <h3 class="result-btn__title text-center">RESULT</h3>
-            <!-- <div class="result-btn__button"> -->
             <button id="btn" type="button" class="btn result-btn__button">Text</button>
           </div>
         </div>
-      </div>
+      </div><!--end row-->
 
       <div class="row">
         <div class="col-md-12">
           <form id="form" class="result-form text-center" action="#">
-            <textarea id="htmlField" class="result-form__textarea form-control" name="html" placeholder="HTML code" rows="4" readonly></textarea>
-            <textarea id="cssField" class="result-form__textarea form-control" name="css" placeholder="CSS code" rows="4" readonly="readonly" wrap="off"></textarea>             
+            <textarea id="htmlField" class="result-form__textarea form-control" name="html" placeholder="HTML code" rows="4" readonly wrap="off"></textarea>
+            <textarea id="cssField" class="result-form__textarea form-control" name="css" placeholder="CSS code" rows="4" readonly="readonly" wrap="off"></textarea>
             <label class="sr-only" for="inputEmail">Email address</label>
-            <input type="" class="result-form__input form-control" id="inputEmail" placeholder="Enter email">
+            <input type="text" class="result-form__input form-control" id="inputEmail" placeholder="Enter email">
             <button type="submit" class="result-form__submit btn btn-success">Submit</button>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
+      </div><!--end row-->
 
+    </div><!--end container-->
+  </div><!--end wrapper-->
 
-    <!-- Include all javascript files -->
-    <!--
-    <script src="assets/js/libs/jquery.min.js"></script>
-    <script src="assets/js/libs/jquery-ui.js"></script>
-    <script src="assets/js/libs/bootstrap.js"></script>
-    <script src="assets/js/libs/jscolor/jscolor.js"></script>
-    <script src="assets/js/script.js"></script>-->
+    <!-- Include all javascript files -->    
     <script src="assets/js/production.min.js"></script>
 
   </body>

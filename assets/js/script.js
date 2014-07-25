@@ -44,10 +44,12 @@
             }
         },
 
+        //vars
+        ajaxUrl     : "server/send_mail.php",
+        htmlTemplate: '<button class="button">Text</button>',
+
         init: function() {
             //init vars
-            this.ajaxUrl = "server/send_mail.php";
-            this.htmlTemplate = '<button class="button">Text</button>';
             this.textField = $('#buttonText');
             this.btn = $('#btn');
             this.form = $('#form');
@@ -56,7 +58,7 @@
             this.inputEmail = this.form.find('#inputEmail');
 
             //create slider
-            this.makeSliders();
+            this.initModules(); //makeSliders
 
             //clear result forms
             //this.cssField.val('');
@@ -125,11 +127,7 @@
             }
 
             if (!valid) {
-                input.tooltip({
-                    trigger: 'manual',
-                    placement: 'right',
-                    title: errorText
-                }).tooltip('show');
+                this.makeTooltip(errorText);
             }
 
             return valid;
@@ -149,7 +147,7 @@
 			$(this).tooltip('destroy');
 		},*/
         //make modules, set default values
-        makeSliders: function() 
+        initModules: function()
         {
             var key, elem = null;
             for (key in this.defaults) {
@@ -218,6 +216,9 @@
                 borderColor = this.btn.css("border-top-color"),
                 backgroundColor = this.btn.css("background-color");
             //проверки
+            if (typeof(IE_OLD) != "undefined") {
+                borderRadius = $('#borderRadius').slider('value');
+            }
             borderRadius = (borderRadius > maxBorderRadius) ? maxBorderRadius.toFixed() + 'px' : borderRadius.toFixed() + 'px';
 
             this.cssField.val(
@@ -244,14 +245,15 @@
 
             if (newText != 0) {
                 this.btn.text(newText);
-                this.htmlField.val(button[0].outerHTML);
-                //this.showHtml(newText);
+                //this.htmlField.val(button[0].outerHTML);
+                this.showHtml(button);
             }
         },
 
-        showHtml: function() 
+        showHtml: function(button) 
         {
-            var button = $(this.htmlTemplate);
+            if (!button)
+                var button = $(this.htmlTemplate);
             this.htmlField.val(button[0].outerHTML);
         }
 
@@ -259,7 +261,7 @@
 
     //run App
     App.init();
-
+    //optional run this func's
     App.showCss();
     App.showHtml();
 });

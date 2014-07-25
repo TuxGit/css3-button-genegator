@@ -41,6 +41,25 @@ module.exports = function(grunt) {
         },
 
         //cssmin: {},
+        cssmin: {
+          combine: {
+            files: {
+              'assets/css/production.min.css': 
+              [
+                'assets/css/libs/bootstrap.css',
+                'assets/css/libs/jquery-ui.css',
+                'assets/css/style.css'
+              ]
+            }
+          }
+          /*minify: {
+            expand: true,
+            cwd: 'assets/css/',
+            src: ['production.css'],
+            dest: 'assets/css/',
+            ext: '.min.css'
+          }*/
+        },
 
         watch: {
             js: {
@@ -49,7 +68,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['assets/sass/*.scss'],
-                tasks: ['compass'] 
+                tasks: ['compass', 'cssmin'] 
             }
         }
 
@@ -60,9 +79,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // 4. Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'cssmin', 'watch']);
     //grunt.registerTask('watch', ['watch']);
 
 };

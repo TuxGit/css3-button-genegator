@@ -48,24 +48,24 @@
         ajaxUrl     : "server/send_mail.php",
         htmlTemplate: '<button class="button">Text</button>',
 
-        init: function() {
+        init: function() 
+        {
             //init vars
-            this.textField = $('#buttonText');
             this.btn = $('#btn');
             this.form = $('#form');
             this.cssField = this.form.find('#cssField');
             this.htmlField = this.form.find('#htmlField');
             this.inputEmail = this.form.find('#inputEmail');
 
-            //create slider
-            this.initModules(); //makeSliders
+            //init modules
+            this.initModules();
 
             //clear result forms
             //this.cssField.val('');
             //this.htmlField.val('');
 
             //init events
-            this.textField.on('keyup', $.proxy(this.updateHtml, this));
+            $('#buttonText').on('keyup', $.proxy(this.updateHtml, this));
             this.form.on('submit', $.proxy(this.submitForm, this));
             this.inputEmail.on('keydown', function() {
                 $(this).tooltip('destroy');
@@ -77,8 +77,6 @@
         {
             e.preventDefault();
             var form = e.target;
-
-            //this.clearTooltip.call();
 
             if (this.validateForm(form) === true) {
                 //console.log(form, 'ajax gogogo');
@@ -142,10 +140,6 @@
             }).tooltip('show');   
         },
 
-        /*clearTooltip: function ()
-		{
-			$(this).tooltip('destroy');
-		},*/
         //make modules, set default values
         initModules: function()
         {
@@ -160,9 +154,7 @@
                         orientation: "horizontal",
                         range: "min",
                         change: $.proxy(this.updateButton, this)
-                        //scope: this
                     });
-                    //$('#' + key).on('slidechange', $.proxy(this.updateButton, this));
                 } else if (elem.type === 'color') {
 
                     $('#' + key).val(elem.value);
@@ -172,9 +164,6 @@
 
         updateButton: function(e, ui) 
         {
-            //this == html obj
-            //var id = this.id;
-            //var prop = App.defaults[id].name;
             var value = (ui) ? ui.value : e.target.value,
                 id = e.target.id,
                 elem = this.defaults[id];
@@ -201,14 +190,12 @@
             this.showCss();
         },
 
-        showCss: function() //showResult
+        showCss: function()
         {
             //размеры
             var borderRadius = parseInt(this.btn.css("borderTopLeftRadius")), //border-radius
                 maxBorderRadius = parseInt(this.btn.outerHeight()/2),
                 borderWidth = this.btn.css("borderTopWidth"), //border-width
-                //width	 	 = this.btn.css("width"),
-                //height	 = this.btn.css("height"),
                 pdTop = this.btn.css("padding-top"),
                 pdLeft = this.btn.css("padding-left"),
             //цвета
@@ -223,21 +210,19 @@
 
             this.cssField.val(
                 '.button {\n' +
-                '  -moz-border-radius' + ':' + borderRadius + ';\n' +
-                '  -webkit-border-radius' + ':' + borderRadius + ';\n' +
-                '  border-radius' + ':' + borderRadius + ';\n' +
-                '  border-width' + ':' + borderWidth + ';\n' +
-                //'  width' + ':' + width + ';\n' + 
-                //'  height' + ':' + height + ';' + 
-                '  padding' + ':' + pdTop + ' ' + pdLeft + ' ' + pdTop + ' ' + pdLeft + ';\n' +
-                '  color: ' + color + ';\n' +
-                '  border-color: ' + borderColor + ';\n' +
-                '  background-color: ' + backgroundColor + ';' +
+                '  -moz-border-radius: '    + borderRadius + ';\n' +
+                '  -webkit-border-radius: ' + borderRadius + ';\n' +
+                '  border-radius: '         + borderRadius + ';\n' +
+                '  border-width: '          + borderWidth + ';\n' +
+                '  padding: '               + pdTop + ' ' + pdLeft + ' ' + pdTop + ' ' + pdLeft + ';\n' +
+                '  color: '                 + color + ';\n' +
+                '  border-color: '          + borderColor + ';\n' +
+                '  background-color: '      + backgroundColor + ';' +
                 '\n}'
             );
         },
 
-        updateHtml: function(e) //showHtml
+        updateHtml: function(e)
         {
             var inputText = e.currentTarget,
                 newText = $(inputText).val(),
@@ -245,7 +230,6 @@
 
             if (newText != 0) {
                 this.btn.text(newText);
-                //this.htmlField.val(button[0].outerHTML);
                 this.showHtml(button);
             }
         },

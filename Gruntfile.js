@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 
         uglify: {
             //минификация js
+            options: {banner: '/*CSS3-button-Generator by Alex Nikitin*/'},
             build: {
                 src: 'assets/js/production.js',
                 dest: 'assets/js/production.min.js'
@@ -40,35 +41,55 @@ module.exports = function(grunt) {
             }
         },
 
-        //cssmin: {},
         cssmin: {
-          combine: {
-            files: {
-              'assets/css/production.min.css': 
-              [
-                'assets/css/libs/bootstrap.css',
-                'assets/css/libs/jquery-ui.css',
-                'assets/css/style.css'
-              ]
+            //минификация css
+            options: {banner: '/*CSS3-button-Generator by Alex Nikitin*/'},
+            dist: {
+                src: [
+                    'assets/css/libs/uncss.css',
+                    //'assets/css/libs/bootstrap.css',
+                    'assets/css/libs/jquery-ui.css',
+                    'assets/css/style.css'
+                ],
+                dest: 'assets/css/production.min.css'
+            },
+
+        },
+
+        uncss: {
+            //убираем лишние стили библиотек
+            dist: {
+                options: {
+                    stylesheets: [
+                        'assets/css/libs/bootstrap.css',
+                        //'assets/css/libs/jquery-ui.css'
+                        //'assets/css/style.css'
+                    ],
+                    ignore: [
+                        '.fade',
+                        '.tooltip',
+                        '.tooltip.in',
+                        '.tooltip.right',
+                        '.tooltip-inner',
+                        '.tooltip-arrow',
+                        '.tooltip.right .tooltip-arrow'
+                    ],
+                },
+                files: {
+                  'assets/css/libs/uncss.css': ['index.html']
+                }
             }
-          }
-          /*minify: {
-            expand: true,
-            cwd: 'assets/css/',
-            src: ['production.css'],
-            dest: 'assets/css/',
-            ext: '.min.css'
-          }*/
         },
 
         watch: {
+            //настройка смотрителя за проектом
             js: {
                 files: ['assets/js/script.js'],
                 tasks: ['concat', 'uglify'],
             },
             css: {
                 files: ['assets/sass/*.scss'],
-                tasks: ['compass', 'cssmin'] 
+                tasks: ['compass', 'uncss', 'cssmin'] 
             }
         }
 
@@ -80,9 +101,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-uncss');
 
     // 4. Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'cssmin', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'uncss', 'cssmin', 'watch']);
     //grunt.registerTask('watch', ['watch']);
 
 };
